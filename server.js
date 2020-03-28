@@ -25,7 +25,9 @@ const server = express();
 server.use(bodyParser.json());
 server.use(cors());
 
-server.get('/', (req, resp) => rep.json("Its working"));
+server.get('/', (req, resp) => {
+  resp.json("Its working")
+  });
 server.post('/signin', signin.handleSignin(db, bcrypt));
 server.post('/register', register.handleRegister(db, bcrypt));
 server.get('/profile/:id', profile.handleProfile(db));
