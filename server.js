@@ -38,6 +38,6 @@ server.get('/profile/:id', profile.handleProfile(db));
 server.put('/image', image.handleImage(db));
 server.post('/imageurl', image.handleUrl);
 
-server.listen(3000, () => {
-	console.log("The server is working!");
+server.listen(process.env.PORT, () => {
+	console.log(`The server is working on ${process.env.PORT}`);
 });
