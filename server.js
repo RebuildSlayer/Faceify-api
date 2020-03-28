@@ -25,18 +25,20 @@ const server = express();
 server.use(bodyParser.json());
 server.use(cors());
 
-server.get('/', (req, resp) => {
-	db.select('*').from('users')
-	.orderBy('id', 'asc')
-	.then(data => {
-		resp.json(data);
-	})
-});
+server.get('/', (req, resp) => rep.json("Its working"));
 server.post('/signin', signin.handleSignin(db, bcrypt));
 server.post('/register', register.handleRegister(db, bcrypt));
 server.get('/profile/:id', profile.handleProfile(db));
 server.put('/image', image.handleImage(db));
 server.post('/imageurl', image.handleUrl);
+
+// {
+//   db.select('*').from('users')
+//   .orderBy('id', 'asc')
+//   .then(data => {
+//     resp.json(data);
+//   })
+// }
 
 server.listen(process.env.PORT, () => {
 	console.log(`The server is working on ${process.env.PORT}`);
